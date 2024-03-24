@@ -1,0 +1,129 @@
+# AAVE - Addresses of CAs
+AAVE_V3 = "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2"
+AAVE_V2 = "0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9"
+AAVE_V1 = "0x3dfd23A6c5E8BbcFc9581d2E864a68feb6a076d3"
+
+# AAVE - MethodIDs
+AAVE_RELEVANT_METHODS = {
+    "0x69328dec": "withdraw",
+    "0x617ba037": "supply",
+    "0xe8eda9df": "deposit",
+    "0x573ade81": "repay",
+    "0xa415bcad": "borrow",
+    "0x02c205f": "supplyWithPermit",
+    "0xee3e210b": "repayWithPermit",
+    "0x2dad97d4": "repayWithATokens"
+}
+
+# Compound - Addresses of CAs
+COMPOUND_cUSDCv3 = "0xc3d688B66703497DAA19211EEdff47f25384cdc3"
+COMPOUND_cWETHv3 = "0xA17581A9E3356d9A858b789D68B4d866e593aE94"
+COMPOUND_cUSDCv2 = "0x39AA39c021dfbaE8faC545936693aC917d5E7563"
+COMPOUND_cDAIv2 = "0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643"
+COMPOUND_cETHv2 = "0x4Ddc2D193948926D02f9B1fE9e1daa0718270ED5"
+COMPOUND_cUSDTv2 = "0xf650C3d88D12dB855b8bf7D11Be6C55A4e07dCC9"
+COMPOUND_cWBTCv2 = "0xC11b1268C1A384e55C48c2391d8d480264A3A7F4"
+
+# Compound - MethodIDs
+COMPOUND_RELEVANT_METHODS = {
+    "0xf2b9fdb8": "supply",
+    "0x4232cd63": "supplyTo",
+    "0xf3fef3a3": "withdraw",
+    "0xc3b35a7e": "withdrawTo"
+}
+
+# Compound V2 - MethodIDs
+COMPOUND_V2_RELEVANT_METHODS = {
+    "0x1249c58b": "mint",
+    "0xdb006a75": "redeem",
+    "0x852a12e3": "redeemUnderlying",
+    "0xc5ebeaec": "borrow",
+    "0x0e752702": "repayBorrow",
+}
+
+# Request Status
+REQUEST_OK = 200
+
+# Request blueprints
+REQUEST_API = "https://api.etherscan.io/api?module="
+REQUEST_ACCOUNT = "account&action=txlist&address=" 
+REQUEST_LOG = "logs&action=getLogs&address="
+REQUEST_PAGE = "&startblock=0&endblock=99999999&page="
+REQUEST_DETAILS = "&offset=1000&sort=desc&apikey=YourApiKeyToken"
+REQUEST_BLOCK_START = "&fromBlock="
+REQUEST_BLOCK_END = "&toBlock="
+REQUEST_PAGES_START = "&page="
+REQUEST_MAX_PAGES = 99999999
+
+# Transaction elements
+TRANSACTION_TO = "to"
+TRANSACTION_HASH = "hash"
+TRANSACTION_FROM = "from"
+TRANSACTION_DATE = "timeStamp"
+TRANSACTION_ERROR = "isError"
+TRANSACTION_INPUT = "input"
+TRANSACTION_VALUE = "value"
+TRANSACTION_TOPICS = "topics"
+TRANSACTION_RESULT = "result"
+TRANSACTION_METHOD = "methodId"
+TRANSACTION_BLOCK = "blockNumber"
+TRANSACTION_FUNCTION = "functionName"
+
+# Log constants
+LOG_DATA = "data"
+LOG_RESULT = "result"
+LOG_TOPICS = "topics"
+
+# Topic constants
+TOPIC_REPAY_AAVE_V3 = "0xa534c8dbe71f871f9f3530e97a74601fea17b426cae02e1c5aee42c96c784051"
+TOPIC_REPAY_AAVE_V2 = "0x4cdde6e09bb755c9a5589ebaec640bbfedff1362d4b255ebf8339782b9942faa"
+TOPIC_BORROW_AAVE_V3 = "0xb3d084820fb1a9decffb176436bd02558d15fac9b0ddfed8c465bc7359d7dce0"
+TOPIC_BORROW_AAVE_V2 = "0xc6a898309e823ee50bac64e45ca8adba6690e99e7841c45d754e2a38e9019d9b"
+TOPIC_SUPPLY_AAVE_V3 = "0x804c9b842b2748a22bb64b345453a3de7ca54a6ca45ce00d415894979e22897a"
+TOPIC_SUPPLY_COMPOUND_V3 = "0xd1cf3d156d5f8f0d50f6c122ed609cec09d35c9b9fb3fff6ea0959134dae424e"
+TOPIC_WITHDRAW_AAVE_V3 = "0x3115d1449a7b732c986cba18244e897a450f61e1bb8d589cd2e69e6c8924f9f7"
+TOPIC_WITHDRAW_COMPOUND_V2 = "0xe5b754fb1abb7f01b499791d0b820ae3b6af3424ac1c59768edb53f4ec31a929"
+TOPIC_WITHDRAW_COMPOUND_V3 = "0x9b1bfa7fa9ee420a16e124f794c35ac9f90472acc99140eb2f6447c714cad8eb"
+TOPIC_REPAY_COMPOUND_V2 = "0x1a2a22cb034d26d1854bdc6666a5b91fe25efbbb5dcad3b0355478d6f5c362a1"
+TOPIC_INTEREST_COMPOUND_V2 = "0x4dec04e750ca11537cabcd8a9eab06494de08da3735bc8871cd41250e190bc04"
+TOPIC_INTEREST_TWO_COMPOUND_V2 = "0x875352fb3fadeb8c0be7cbbe8ff761b308fa7033470cd0287f02f3436fd76cb9"
+
+# Cryptocurrencies addresses
+POPULAR_CRYPTOCURRENCIES = {
+    "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": "USDC",
+    "0xdac17f958d2ee523a2206206994597c13d831ec7": "USDT",
+    "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": "WBTC",
+    "0x6b175474e89094c44da98b954eedeac495271d0f": "DAI",
+    "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": "wstETH",
+    "0xae78736cd615f374d3085123a210448e74fc6393": "rETH",
+    "0x514910771af9ca656af840dff83e8264ecf986ca": "LINK",
+    "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": "WETH",
+    "0xd533a949740bb3306d119cc777fa900ba034cd52": "CRV",
+    "0xbe9895146f7af43049ca1c1ae358b0541ea49704": "cbETH",
+    "0x5f98805a4e8be255a32880fdec7f6728c6568ba0": "LUSD",
+    "0xba100000625a3754423978a60c9317c58a424e3d": "BAL",
+    "0x5a98fcbea516cf06857215779fd812ca3bef1b32": "LDO",
+    "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984": "UNI",
+    "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2": "MKR",
+    "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9": "AAVE",
+    "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f": "SNX",
+    "0x111111111117dc0aa78b770fa6a738034120c302": "1INCH",
+    "0xc18360217d8f7ab5e7c516566761ea12ce7f9d72": "ENS",
+    "0x0000000000085d4780b73119b644ae5ecd22b376": "TUSD",
+    "0xae7ab96520de3a18e5e111b5eaab095312d7fe84": "stETH",
+    "0xc00e94cb662c3520282e6f5717214004a7f26888": "COMP",
+    "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f": "GHO",
+    "0x4fabb145d64652a948d72533023f6e7a623c7c53": "BUSD",
+    "0x57ab1ec28d129707052df4df418d58a2d46d5f51": "sUSD",
+    "0x056fd409e1d7a124bd7017459dfea2f387b6d5cd": "GUSD",
+    "0x853d955acef822db058eb8505911ed77f175b99e": "FRAX",
+    "0xd33526068d116ce69f19a9ee46f0bd304f21a51f": "RPL",
+    "0xd46ba6d942050d489dbd938a2c909a5d5039a161": "AMPL",
+    "0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e": "YFI",
+    "0xf629cbd94d3791c9250152bd8dfbdf380e2a3b9c": "ENJ",
+    "0x408e41876cccdc0f92210600ef50372656052a38": "REN",
+    "0x0f5d2fb29fb7d3cfee444a200298f468908cc942": "MANA",
+    "0x8798249c2e607446efb7ad49ec89dd1865ff4272": "xSUSHI",
+    "0x8e870d67f660d95d5be530380d0ec0bd388289e1": "PUSD",
+    "0x4ddc2d193948926d02f9b1fe9e1daa0718270ed5": "cETH"
+}
