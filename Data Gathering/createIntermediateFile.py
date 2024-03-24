@@ -55,7 +55,7 @@ def intermediate_file(file_name):
 
        # Suspend execution because of limit of five calls per sec.      
         line = input_file.readline()
-        time.sleep(0.3)
+        time.sleep(0.5)
 
     # Close files again
     input_file.close()
