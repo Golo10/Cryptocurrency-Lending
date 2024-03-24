@@ -45,7 +45,7 @@ try:
             cryptocurrency_dictionary = Utility.aggregate_functions(cryptocurrency_dictionary, transactions_array[0])
  
         # Suspend execution because of limit of five calls per sec.
-        time.sleep(0.3)
+        time.sleep(0.5)
 except ValueError:  
     print("Parsed through all pages")
 except Exception as exception:
