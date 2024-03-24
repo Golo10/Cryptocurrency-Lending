@@ -1,4 +1,4 @@
-import computeRatesCompound as utliity
+import computeRatesCompound as utility
 
 def complete_file(file_name):
 
@@ -37,7 +37,7 @@ def complete_file(file_name):
                 transaction_borrow_index_t1 = items[7].rstrip()
 
                 # Get rates for Compound
-                rates = utliity.compoundInterface(transaction_borrow_index, transaction_borrow_index_t1, transaction_block, transaction_block_t1, transaction_currency)
+                rates = utility.compoundInterface(transaction_borrow_index, transaction_borrow_index_t1, transaction_block, transaction_block_t1, transaction_currency)
                 transaction_rate = str(rates[0])
                 if ((transaction_method == "borrow") or (transaction_method == "repay")):
                     transaction_rate = str(rates[1])
