@@ -8,3 +8,4 @@
 * constants              :   Collection of constants such as addresses on the Ethereum blockchain or method ids
 * utility                :   Collection of helper functions
 
+Mass-API calls do not seem to be working reliably with the free plan. 
