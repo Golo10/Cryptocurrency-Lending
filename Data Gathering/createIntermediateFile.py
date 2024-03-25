@@ -1,5 +1,5 @@
 import time
-import Utility
+import utility
 import gatherLogData as gather
 
 def intermediate_file(file_name):
@@ -25,7 +25,7 @@ def intermediate_file(file_name):
                 transaction_date = items[2]
                 transaction_from = items[3]
                 transaction_currency = items[4]
-                transaction_currency_clean = Utility.transform_cryptocurrency(transaction_currency)
+                transaction_currency_clean = utility.transform_cryptocurrency(transaction_currency)
                 transaction_method = items[5]
                 transaction_amount = items[6].rstrip()
 

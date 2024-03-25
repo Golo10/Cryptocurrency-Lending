@@ -1,12 +1,12 @@
 import requests
-import Constants
+import constants
 import datetime
 
 # Get request to receive transactions form Etherscan
 def make_request(protocol, page, block_start, block_end):
-    url_full = Constants.REQUEST_API + Constants.REQUEST_ACCOUNT + protocol + "&startblock=" + str(block_start) + "&endblock="+ str(block_end) + Constants.REQUEST_PAGES_START + str(page) + Constants.REQUEST_DETAILS      
+    url_full = constants.REQUEST_API + constants.REQUEST_ACCOUNT + protocol + "&startblock=" + str(block_start) + "&endblock="+ str(block_end) + constants.REQUEST_PAGES_START + str(page) + constants.REQUEST_DETAILS      
     response = requests.get(url_full)
-    if response.status_code == Constants.REQUEST_OK:
+    if response.status_code == constants.REQUEST_OK:
         return response
     else:
         raise ValueError("Web request was unsuccessful")
@@ -32,20 +32,20 @@ def retrieve_transactions(response_json, file):
     cryptocurrency_dictionary = {}
 
     try:
-        for transaction in response_json[Constants.TRANSACTION_RESULT]:
-            if transaction[Constants.TRANSACTION_ERROR] == "0":
+        for transaction in response_json[constants.TRANSACTION_RESULT]:
+            if transaction[constants.TRANSACTION_ERROR] == "0":
 
                 # Retrieve relevant transactional data
-                transaction_hash = transaction[Constants.TRANSACTION_HASH]
-                transaction_date = transaction[Constants.TRANSACTION_DATE]
-                transaction_from = transaction[Constants.TRANSACTION_FROM]
-                transaction_block = transaction[Constants.TRANSACTION_BLOCK]
-                transaction_function = retrieve_functions(transaction[Constants.TRANSACTION_FUNCTION])
-                transaction_method = transaction[Constants.TRANSACTION_METHOD]
-                transaction_input = transaction[Constants.TRANSACTION_INPUT]
-                transaction_currency = transaction[Constants.TRANSACTION_TO]
+                transaction_hash = transaction[constants.TRANSACTION_HASH]
+                transaction_date = transaction[constants.TRANSACTION_DATE]
+                transaction_from = transaction[constants.TRANSACTION_FROM]
+                transaction_block = transaction[constants.TRANSACTION_BLOCK]
+                transaction_function = retrieve_functions(transaction[constants.TRANSACTION_FUNCTION])
+                transaction_method = transaction[constants.TRANSACTION_METHOD]
+                transaction_input = transaction[constants.TRANSACTION_INPUT]
+                transaction_currency = transaction[constants.TRANSACTION_TO]
                 transaction_currency_clean = transform_cryptocurrency(transaction_currency)
-                transaction_amount = retrieve_amount(transaction_method, transaction[Constants.TRANSACTION_VALUE], transaction_input, transaction_currency_clean)
+                transaction_amount = retrieve_amount(transaction_method, transaction[constants.TRANSACTION_VALUE], transaction_input, transaction_currency_clean)
                 
                 # Aggregate cryptocurrency data
                 if transaction_currency_clean not in cryptocurrency_dictionary:
@@ -60,7 +60,7 @@ def retrieve_transactions(response_json, file):
                     function_dictionary[transaction_function] += 1
 
                 # Write data to file
-                if transaction_method in Constants.COMPOUND_V2_RELEVANT_METHODS:
+                if transaction_method in constants.COMPOUND_V2_RELEVANT_METHODS:
                     file.write(transaction_hash + "\t" + transaction_block + "\t" + transaction_date + "\t" + transaction_from + "\t" + transaction_currency_clean + "\t" + transaction_function + "\t" + str(transaction_amount) + "\n")
 
         return [cryptocurrency_dictionary, function_dictionary]
@@ -95,8 +95,8 @@ def transform_to_64(account):
 
 # Transforms cryptocurrency address into code
 def transform_cryptocurrency(cryptocurrency_address):
-    if cryptocurrency_address in Constants.POPULAR_CRYPTOCURRENCIES:
-        return Constants.POPULAR_CRYPTOCURRENCIES[cryptocurrency_address]
+    if cryptocurrency_address in constants.POPULAR_CRYPTOCURRENCIES:
+        return constants.POPULAR_CRYPTOCURRENCIES[cryptocurrency_address]
     else:
         return cryptocurrency_address
 
@@ -113,7 +113,7 @@ def clean_amount(amount_hex, currency):
 
 # Retrieve cryptocurrency from input
 def retrieve_cryptocurrency(method, input):
-    if method in Constants.COMPOUND_V2_RELEVANT_METHODS:
+    if method in constants.COMPOUND_V2_RELEVANT_METHODS:
         cryptocurrency_address = "0x" + input[34:74]
         return cryptocurrency_address
     else:
@@ -158,8 +158,8 @@ def retrieve_mode(data):
 
 # Retrieve amount from input
 def retrieve_amount(method, value, input, currency):
-    if method in Constants.COMPOUND_V2_RELEVANT_METHODS:
-        if Constants.COMPOUND_V2_RELEVANT_METHODS.get(method) == "mint":
+    if method in constants.COMPOUND_V2_RELEVANT_METHODS:
+        if constants.COMPOUND_V2_RELEVANT_METHODS.get(method) == "mint":
             return (int(value) / 1000000000000000000)
         else:
             length = len(input)
